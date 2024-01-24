@@ -57,6 +57,10 @@
     <string name="dnd_title">Do Not Disturb</string>
     <string name="dnd_summary">DND will be activated if Game Mode is enabled</string>
     <string name="game_mode_notif_content">Game Mode is activated</string>
+    <!-- battery saving mode -->
+    <string name="battery_saving_mode_summary">Enables conservative governor. Decreases maximum CPU frequencies</string>
+    <string name="battery_saving_mode_title">Battery Saver</string>
+    <string name="battery_saving_mode_notif_content">Battery Saver is activated</string>
     <!-- Refresh rate -->
     <string name="refresh_title">Screen Refresh Rate</string>
     <string name="tile_refresh_rate">Refresh Rate</string>
