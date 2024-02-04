@@ -48,7 +48,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_OTG_SWITCH = "otg";
     public static final String KEY_GAME_SWITCH = "game";
-    public static final String KEY_BATTERY_SWITCH = "batterys";
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_CHARGING_SPEED = "charging_speed";
     public static final String KEY_RESET_STATS = "reset_stats";
@@ -76,8 +75,7 @@ public class DeviceSettings extends PreferenceFragment
     private TwoStatePreference mSRGBModeSwitch;
     private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
-    public static TwoStatePreference mGameModeSwitch;
-    public static TwoStatePreference mBatterySavingModeSwitch;
+    private TwoStatePreference mGameModeSwitch;
     private TwoStatePreference mSmartChargingSwitch;
     private SwitchPreference mFpsInfo;
     private boolean CABC_DeviceMatched;
@@ -117,12 +115,6 @@ public class DeviceSettings extends PreferenceFragment
         mGameModeSwitch.setEnabled(GameModeSwitch.isSupported());
         mGameModeSwitch.setChecked(GameModeSwitch.isCurrentlyEnabled(this.getContext()));
         mGameModeSwitch.setOnPreferenceChangeListener(new GameModeSwitch(getContext()));
-
-        mBatterySavingModeSwitch = findPreference(KEY_BATTERY_SWITCH);
-        mBatterySavingModeSwitch.setEnabled(!mGameModeSwitch.isChecked());
-        if (GameModeSwitch.isSupported()) {mGameModeSwitch.setEnabled(!mBatterySavingModeSwitch.isChecked());}
-        mBatterySavingModeSwitch.setChecked(BatterySavingModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mBatterySavingModeSwitch.setOnPreferenceChangeListener(new BatterySavingModeSwitch(getContext()));
 
         mDNDSwitch = findPreference(KEY_DND_SWITCH);
         mDNDSwitch.setChecked(prefs.getBoolean(KEY_DND_SWITCH, false));
